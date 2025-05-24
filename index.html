@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Test - Kiểm Tra Tiếng Anh</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      max-width: 650px;
+      width: 100%;
+      padding: 30px 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    p.subtitle {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    form {
+      margin-top: 10px;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    .question h3 {
+      margin: 0 0 15px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
+    .option {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 7px 15px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.25);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .option:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #ffdd57;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      margin: 30px auto 10px;
+      background: #ffdd57;
+      color: #3a2f0b;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 35px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(255, 221, 87, 0.5);
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ffc107;
+    }
+    #result {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 15px;
+      font-weight: 700;
+      color: #ffdd57;
+      text-shadow: 0 0 3px #fff5b1;
+    }
+  </style>
+</head>
+<body >
+  <div class="container ">
+    <h1>English Test</h1>
+    <p class="subtitle">Choose the best answer for each question below.</p>
+    <form id="quizForm">
+      <div class="question grid grid-cols-2 gap-4">
+        <h3>1. Choose the correct sentence:</h3>
+        <label class="option"><input type="radio" name="q1" value="A" /> He don't like apples.</label>
+        <label class="option"><input type="radio" name="q1" value="B" /> He doesn't like apples.</label>
+        <label class="option"><input type="radio" name="q1" value="C" /> He isn't like apples.</label>
+        <label class="option"><input type="radio" name="q1" value="D" /> He don't likes apples.</label>
+      </div>
+      <div class="question">
+        <h3>2. What is the plural form of "child"?</h3>
+        <label class="option"><input type="radio" name="q2" value="A" /> Childs</label>
+        <label class="option"><input type="radio" name="q2" value="B" /> Childes</label>
+        <label class="option"><input type="radio" name="q2" value="C" /> Children</label>
+        <label class="option"><input type="radio" name="q2" value="D" /> Child</label>
+      </div>
+      <div class="question">
+        <h3>3. Fill in the blank: She ______ to school by bus every day.</h3>
+        <label class="option"><input type="radio" name="q3" value="A" /> go</label>
+        <label class="option"><input type="radio" name="q3" value="B" /> goes</label>
+        <label class="option"><input type="radio" name="q3" value="C" /> going</label>
+        <label class="option"><input type="radio" name="q3" value="D" /> gone</label>
+      </div>
+      <div class="question">
+        <h3>4. Choose the correct synonym of "happy".</h3>
+        <label class="option"><input type="radio" name="q4" value="A" /> Sad</label>
+        <label class="option"><input type="radio" name="q4" value="B" /> Angry</label>
+        <label class="option"><input type="radio" name="q4" value="C" /> Joyful</label>
+        <label class="option"><input type="radio" name="q4" value="D" /> Tired</label>
+      </div>
+      <div class="question">
+        <h3>5. What is the past tense of "run"?</h3>
+        <label class="option"><input type="radio" name="q5" value="A" /> Ran</label>
+        <label class="option"><input type="radio" name="q5" value="B" /> Runed</label>
+        <label class="option"><input type="radio" name="q5" value="C" /> Running</label>
+        <label class="option"><input type="radio" name="q5" value="D" /> Runs</label>
+      </div>
+      <button type="submit">Submit</button>
+      <div id="result"></div>
+    </form>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "B",
+      q2: "C",
+      q3: "B",
+      q4: "C",
+      q5: "A"
+    };
+
+    const form = document.getElementById('quizForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let unanswered = [];
+
+      for (let q in answers) {
+        const selected = form.elements[q].value;
+        if (!selected) {
+          unanswered.push(q);
+        } else if (selected === answers[q]) {
+          score++;
+        }
+      }
+      if (unanswered.length > 0) {
+        alert("Bạn chưa trả lời hết tất cả các câu hỏi. Vui lòng hoàn thành.");
+        return;
+      }
+      resultDiv.textContent = `you have ${score} / ${total} point.`;
+    });
+  </script>
+</body>
+</html>
+
